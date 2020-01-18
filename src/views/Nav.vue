@@ -60,6 +60,6 @@ li a {
 .nav-bar {
 	position: sticky;
 	top: 10px;
-	border-bottom: 2.5px solid #DDDDDD;
+	border-bottom: 5px solid #DDDDDD;
 }
 </style>

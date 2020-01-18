@@ -15,19 +15,7 @@
 			</ul>
 		</div>
 		
-			<!-- <div class="row">
-				<div v-for="(item, index) in recommoned" :key="index" >
-					<div class="col-4"><img :src="item.banner" alt="" /></div>
-
-					<div class="col-8">
-						<h3>{{ item.title }}</h3>
-						<small>{{ item.introduction }}</small>
-						<p class="meta">{{ item.updated }} 更新，{{ item.viewCount }}次浏览</p>
-						<span v-for="(section, index) in item.sections" :key="index" class="section">{{ section.sectionTitle }}</span>
-					</div>
-				</div>
-				<div class="col-4"></div>
-			</div> -->
+		
 			</div>
 			<router-view />
 	</div>
