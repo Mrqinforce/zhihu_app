@@ -1,46 +1,64 @@
 <template>
-	<div>
-		<div class="container">
-			<div class="banner">
-				<i class="iconfont">&#xe71f;</i>
-				<h3>最新专题</h3>
+	<div class="container">
+		<div class="banner">
+			<i class="iconfont">&#xe71f;</i>
+			<h3>最新专题</h3>
+		</div>
+		<div class="row">
+			<div class="col-6 card" v-for="(item, index) in specials" :key="index">
+				<div><img :src="item.banner" alt="" /></div>
+				<div class="card-body">
+						<h3>{{ item.title }}</h3>
+						<div class="r"><button class="btn">关注专题</button></div>
+						<p class="meta">{{ item.updated }}更新,{{ item.viewCount }}次浏览</p>
+					<p class="introduction">{{ item.introduction.slice(0, 40) }}...</p>
+				</div>
+				<span v-for="(section, index) in item.sections" :key="index" class="section">{{ section.sectionTitle }}</span>
 			</div>
-			<div class="row">
-				<div class="col-6 card" v-for="(item, index) in specials" :key="index">
-					<div class="card-head"><img :src="item.banner" alt="" /></div>
-					<div class="card-body">
-						<div>
-							<h3>{{ item.title }}</h3>
-							<div class="r"><button class="btn">关注专题</button></div>
-							<p class="meta">{{ item.updated }}更新,{{ item.viewCount }}次浏览</p>
-						</div>
-						<p class="introduction">{{ item.introduction }}</p>
+			<button class="center"><router-link to="/special/all" class="btn" style="color: #AAAAAA;">查看更多专题 ></router-link></button>
+		</div>
+		<div class="row">
+			<div class="banner">
+				<i class="iconfont">&#xe630;</i>
+				<h3>圆桌讨论</h3>
+			</div>
+			<div class="col-6 card" v-for="(item, index) in roundTables" :key="index">
+				<div class="cards-head">
+					<div class="card-background"><img :src="item.banner" alt="" /></div>
+					<div class="card-main">
+						<p class="name">{{ item.name }}</p>
+						<p>{{ item.visitsCount }}人访问,{{ item.includeCount }}人参与</p>
 					</div>
+					<div class="card-btn"><button class="btn">关注圆桌</button></div>
+				</div>
+				<div class="card-buttom">
 					<span v-for="(section, index) in item.sections" :key="index" class="section">{{ section.sectionTitle }}</span>
 				</div>
-				<button class="center"><router-link to="/special/all" class="btn" style="color: #AAAAAA;">查看更多专题 ></router-link></button>
 			</div>
-			<div class="row">
-				<div class="banner">
-					<i class="iconfont">&#xe630;</i>
-					<h3>圆桌讨论</h3>
-				</div>
-				<div class="col-6 card" v-for="(item, index) in roundTables" :key="index">
-					<div class="cards-head">
-						<div class="card-background"><img :src="item.banner" alt="" /></div>
-						<div class="card-main">
-							<p class="name">{{ item.name }}</p>
-							<p>{{ item.visitsCount }}人访问,{{ item.includeCount }}人参与</p>
-						</div>
-						<div class="card-btn"><button class="btn">关注圆桌</button></div>
-					</div>
-					<div class="card-buttom">
-						<span v-for="(section, index) in item.sections" :key="index" class="section">{{ section.sectionTitle }}</span>
-					</div>
-				</div>
-				<button class="center"><router-link to="/roundTable/all" class="btn" style="color: #AAAAAA;">查看更多圆桌 ></router-link></button>
-				<button><i class="iconfont" style="position: fixed; bottom: 5%; right: 2%;">&#xe71f;</i></button>
+			<button class="center"><router-link to="/roundTable/all" class="btn" style="color: #AAAAAA;">查看更多圆桌 ></router-link></button>
+			<button><i class="iconfont" style="position: fixed; bottom: 5%; right: 2%;">&#xe71f;</i></button>
+		</div>
+		<div class="row">
+			<div class="banner">
+				<i class="iconfont">&#xe630;</i>
+				<h3>热门收藏夹</h3>
 			</div>
+			<div class="col-6 cards" v-for="(item, index) in favorites" :key="index">
+				<div class="card_head">
+					<div class="card-body">
+						<h3>{{ item.title }}</h3>
+						<div class="r"><button class="btn">关注收藏夹</button></div>
+						<div><img :src="item.creatorAvatar" alt="" /></div>
+						<p class="meta">{{ item.creatorName }}创建 | {{ item.followers }}关注</p>
+						<p class="introduction">{{ item.questionTitle.slice(0, 40) }}...</p>
+						<p class="introduction">{{ item.answerAuthorName }}:{{ item.answerContent.slice(0, 40) }}...</p>
+					</div>
+				</div>
+				<div class="card-buttom">
+					<span v-for="(section, index) in item.sections" :key="index" class="section">{{ section.sectionTitle }}</span>
+				</div>
+			</div>
+			<button class="center"><router-link to="/favorite/all" class="btn" style="color: #AAAAAA;">查看更多收藏夹 ></router-link></button>
 		</div>
 	</div>
 </template>
@@ -51,7 +69,8 @@ export default {
 	data() {
 		return {
 			specials: [],
-			roundTables: []
+			roundTables: [],
+			favorites: []
 		};
 	},
 	created() {
@@ -62,6 +81,10 @@ export default {
 		this.axios.get('http://localhost:8080/api/roundTable').then(res => {
 			console.log(res);
 			this.roundTables = res.data.data;
+		});
+		this.axios.get('http://localhost:8080/api/favorite').then(res => {
+			console.log(res);
+			this.favorites = res.data.data;
 		});
 	}
 };
@@ -87,8 +110,14 @@ export default {
 }
 .card {
 	background-color: rgb(255, 255, 255);
-	height: 500px;
+	height: 550px;
 	margin-right: -5px;
+}
+.cards {
+	background-color: rgb(255, 255, 255);
+	height: 380px;
+	margin-left: 20px;
+	margin-bottom: 40px;
 }
 .cards-head {
 	position: relative;
@@ -96,7 +125,7 @@ export default {
 	// 颜色渐变
 	background-image: linear-gradient(to right, rgb(0, 0, 255) 0%, rgba(0, 0, 255, 0) 100%);
 }
-.card-head {
+.card_head {
 	width: 100%;
 }
 .card-background {
@@ -112,6 +141,11 @@ export default {
 .card-main {
 	position: relative;
 	width: 320px;
+	padding: 68px 24px 24px;
+}
+.cards-main {
+	position: relative;
+	width: 220px;
 	padding: 68px 24px 24px;
 }
 .card-btn {
@@ -160,12 +194,17 @@ export default {
 	color: white;
 	margin-bottom: 30px;
 }
+.title {
+	font-size: 28px;
+	font-weight: 660;
+	color: black;
+	margin-bottom: 30px;
+}
 .col-6 {
 	flex: 0 0 47%;
-	img {
-		width: 100%;
-		height: 100%;
-	}
+	// img {
+	// 	width: 100%;
+	// }
 }
 .center {
 	width: 150px;

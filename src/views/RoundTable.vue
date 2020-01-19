@@ -13,13 +13,13 @@
 					<div class="meta">
 						<p>该圆桌被浏览{{ item.visits_count }}次</p>
 					</div>
-				</div>
+				</div>	
 			</div>
 
-			<button @click="show_all" class="flex center btn">展开全部</button>
+			<button @click="showAll" class="flex center btn">展开全部</button>
 		</div>
 		<div>
-			<a href="#top" style="position: fixed; bottom: 5%; right: 5%;"><i class="iconfont">&#xe604;</i></a>
+			<a href="#" style="position: fixed; bottom: 5%; right: 5%;"><i class="iconfont">&#xe604;</i></a>
 		</div>
 	</div>
 </template>
@@ -41,7 +41,7 @@ export default {
 		});
 	},
 	methods: {
-		show_all() {
+		showAll() {
 			this.begin = 0;
 			this.end = this.roundTables.length;
 		}

@@ -55,7 +55,7 @@ li a {
 }
 .router-link-active {
 	color: black;
-	border-bottom: 2px solid #ffffff;
+	border-bottom: 2px solid royalblue;
 }
 .nav-bar {
 	position: sticky;

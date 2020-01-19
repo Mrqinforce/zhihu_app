@@ -10,22 +10,22 @@ import Hot from '../views/Hot.vue'
 import QuestionWaiting from '../views/QuestionWaiting.vue'
 import Login from '../views/Login.vue'
 import RoundTable from '../views/RoundTable.vue'
+import Favorite from '../views/Favorite.vue'
+import Column from '../views/Column.vue'
 
 Vue.use(VueRouter)
 
-const routes = [
-	{
+const routes = [{
 		path: '/',
 		component: Nav,
 		children: [{
-			path: '/',
-			redirect: 'home'
+				path: '/',
+				redirect: 'home'
 			},
 			{
 				path: 'home',
 				component: () => import('../views/Home.vue'),
-				children: [
-					{
+				children: [{
 						path: '/',
 						redirect: 'recommoned'
 					},
@@ -42,34 +42,42 @@ const routes = [
 						component: () => import('../views/Hot.vue')
 					}
 				]
-					
+
 			},
-	{
-		path: 'explore',
-		component: () => import('../views/Explore.vue')
+			{
+				path: 'explore',
+				component: () => import('../views/Explore.vue')
+			},
+			{
+				path: 'special/all',
+				component: () => import('../views/Special.vue')
+			},
+			{
+				path: 'question/waiting',
+				component: () => import('../views/QuestionWaiting.vue')
+			},
+			{
+				path: 'roundTable/all',
+				component: () => import('../views/RoundTable.vue')
+			},
+			{
+				path: 'Favorite/all',
+				component: () => import('../views/Favorite.vue')
+			},
+			{
+				path: 'Column/all',
+				component: () => import('../views/Column.vue')
+			},
+		]
 	},
-	{
-		path: 'special/all',
-		component: () => import('../views/Special.vue')
-	},
-	{
-		path: 'question/waiting',
-		component: () => import('../views/QuestionWaiting.vue')
-	},
-	{
-			path:'roundTable/all',
-			component:() => import('../views/RoundTable.vue')
-		}
-  ]
- },
 	{
 		path: '/login',
 		component: Login
 	}
- ]	
-  
+]
+
 const router = new VueRouter({
-  routes
+	routes
 })
 
 export default router

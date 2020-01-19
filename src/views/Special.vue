@@ -18,7 +18,7 @@
 		</div>
 		<button @click="showAll" class="flex center btn">展开全部</button>
 		<button>
-			<a href="#top" style="position: fixed; bottom: 5%; right: 2%; c"><i class="iconfont">&#xe604;</i></a>
+			<a href="#" style="position: fixed; bottom: 5%; right: 2%; c"><i class="iconfont">&#xe604;</i></a>
 		</button>
 	</div>
 </template>
