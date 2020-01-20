@@ -24,7 +24,7 @@ const routes = [{
 			},
 			{
 				path: 'home',
-				component: () => import('../views/Home.vue'),
+				component: () => 	import('../views/Home.vue'),
 				children: [{
 						path: '/',
 						redirect: 'recommoned'
@@ -61,11 +61,11 @@ const routes = [{
 				component: () => import('../views/RoundTable.vue')
 			},
 			{
-				path: 'Favorite/all',
+				path: 'favorite/all',
 				component: () => import('../views/Favorite.vue')
 			},
 			{
-				path: 'Column/all',
+				path: 'column/all',
 				component: () => import('../views/Column.vue')
 			},
 		]

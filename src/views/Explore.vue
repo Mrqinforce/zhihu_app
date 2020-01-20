@@ -1,16 +1,21 @@
 <template>
 	<div class="container">
 		<div class="banner">
-			<i class="iconfont">&#xe71f;</i>
+			<svg class="Zi Zi--LabelSpecial" fill="currentColor" viewBox="0 0 24 24" width="36" height="36" style="fill: #0084FF; margin-right: 10px;">
+				<path
+					d="M7.667 3.667h11.466a1.2 1.2 0 0 1 1.2 1.2v13.066a2.4 2.4 0 0 1-2.4 2.4H6.467V4.867a1.2 1.2 0 0 1 1.2-1.2zM4.2 9.619h1.689v10.714H5.4a2.4 2.4 0 0 1-2.4-2.4V10.82a1.2 1.2 0 0 1 1.2-1.2zm5.178-2.38a.6.6 0 0 0-.6.6v.585a.6.6 0 0 0 .6.6h8.044a.6.6 0 0 0 .6-.6v-.586a.6.6 0 0 0-.6-.6H9.378zm0 3.57a.6.6 0 0 0-.6.6v.586a.6.6 0 0 0 .6.6h8.044a.6.6 0 0 0 .6-.6v-.585a.6.6 0 0 0-.6-.6H9.378zm0 3.572a.6.6 0 0 0-.6.6v.586a.6.6 0 0 0 .6.6h4.578a.6.6 0 0 0 .6-.6v-.586a.6.6 0 0 0-.6-.6H9.378z"
+					fill-rule="evenodd"
+				></path>
+			</svg>
 			<h3>最新专题</h3>
 		</div>
 		<div class="row">
 			<div class="col-6 card" v-for="(item, index) in specials" :key="index">
 				<div><img :src="item.banner" alt="" /></div>
 				<div class="card-body">
-						<h3>{{ item.title }}</h3>
-						<div class="r"><button class="btn">关注专题</button></div>
-						<p class="meta">{{ item.updated }}更新,{{ item.viewCount }}次浏览</p>
+					<h3>{{ item.title }}</h3>
+					<div class="r"><button class="btn">关注专题</button></div>
+					<p class="meta">{{ item.updated }}更新,{{ item.viewCount }}次浏览</p>
 					<p class="introduction">{{ item.introduction.slice(0, 40) }}...</p>
 				</div>
 				<span v-for="(section, index) in item.sections" :key="index" class="section">{{ section.sectionTitle }}</span>
@@ -19,7 +24,12 @@
 		</div>
 		<div class="row">
 			<div class="banner">
-				<i class="iconfont">&#xe630;</i>
+				<svg class="Zi Zi--LabelRoundtable" viewBox="0 0 24 24" width="36" height="36" style="fill: #0084FF;margin-right: 10px;">
+					<path
+						d="M12 21.333a9.333 9.333 0 1 1 0-18.666 9.333 9.333 0 0 1 0 18.666zm-.66-11.287c.332.385.609.77.775 1.21.055-.054.665-.99.72-1.706.055-.385.126-1.616-.443-2.367-.443-.496-1.219-.77-1.884-.55a1.788 1.788 0 0 0-1.33 2.036c.887.276 1.607.771 2.161 1.377zm-1.33 1.541c.443-.055.941-.11 1.44 0 0-.055-.484-.936-1.108-1.486-.665-.496-1.33-.973-2.216-.771-.72.11-1.723.77-1.55 2.092.11.606.553 1.101 1.162 1.321.61-.605 1.44-1.046 2.272-1.156zm2.714.165c.056 0 1.164.055 1.828-.165.72-.275 1.412-.68 1.773-1.541.11-.276.23-1.248-.443-1.872-.72-.716-1.717-.716-2.438-.165.222.825.063 1.966-.11 2.532-.103.348-.333.88-.61 1.211zm-1.44.55c-.056 0-1.33.056-1.828.221-.72.275-1.447.668-1.773 1.541-.11.276-.21 1.26.443 1.872.665.661 1.718.661 2.438.11-.295-.811-.166-1.761.055-2.477.166-.495.388-.936.665-1.266zm5.041-.99c-.665.605-1.44.99-2.327 1.211-.443.055-.941.11-1.44 0 0 .055.554.991 1.108 1.431.665.496 1.385.771 2.216.771.72-.11 1.678-.692 1.551-2.092-.055-.605-.554-1.101-1.108-1.321zm-3.656 2.642a3.475 3.475 0 0 1-.776-1.156c-.055.055-.665.991-.72 1.707-.055.385-.101 1.506.499 2.312.443.496 1.218.77 1.883.55.887-.275 1.496-1.1 1.33-2.036a5.38 5.38 0 0 1-2.216-1.377z"
+						fill-rule="evenodd"
+					></path>
+				</svg>
 				<h3>圆桌讨论</h3>
 			</div>
 			<div class="col-6 card" v-for="(item, index) in roundTables" :key="index">
@@ -35,12 +45,16 @@
 					<span v-for="(section, index) in item.sections" :key="index" class="section">{{ section.sectionTitle }}</span>
 				</div>
 			</div>
-			<button class="center"><router-link to="/roundTable/all" class="btn" style="color: #AAAAAA;">查看更多圆桌 ></router-link></button>
-			<button><i class="iconfont" style="position: fixed; bottom: 5%; right: 2%;">&#xe71f;</i></button>
+			<button class="center"><router-link to="/roundTable/all" class="btn" style="color: #AAAAAA;">查看更多专题 ></router-link></button>
 		</div>
 		<div class="row">
 			<div class="banner">
-				<i class="iconfont">&#xe630;</i>
+				<svg class="Zi Zi--Star" fill="currentColor" viewBox="0 0 24 24" width="36" height="36" style="color: #0084FF; margin-right: 10px;">
+					<path
+						d="M5.515 19.64l.918-5.355-3.89-3.792c-.926-.902-.639-1.784.64-1.97L8.56 7.74l2.404-4.871c.572-1.16 1.5-1.16 2.072 0L15.44 7.74l5.377.782c1.28.186 1.566 1.068.64 1.97l-3.89 3.793.918 5.354c.219 1.274-.532 1.82-1.676 1.218L12 18.33l-4.808 2.528c-1.145.602-1.896.056-1.677-1.218z"
+						fill-rule="evenodd"
+					></path>
+				</svg>
 				<h3>热门收藏夹</h3>
 			</div>
 			<div class="col-6 cards" v-for="(item, index) in favorites" :key="index">
@@ -50,22 +64,27 @@
 						<div class="r"><button class="btn">关注收藏夹</button></div>
 						<div><img :src="item.creatorAvatar" alt="" /></div>
 						<p class="meta">{{ item.creatorName }}创建 | {{ item.followers }}关注</p>
-						<p class="introduction">{{ item.questionTitle.slice(0, 40) }}...</p>
-						<p class="introduction">{{ item.answerAuthorName }}:{{ item.answerContent.slice(0, 40) }}...</p>
+						<h4>{{ item.questionTitle}}</h4>
+						<h4>{{ item.answerAuthorName }}:{{ item.answerContent.slice(0, 32) }}...</h4>
+						<p class="metatwo">{{item.followers}}赞同，{{item.commentCount}}评论</p>
 					</div>
-				</div>
-				<div class="card-buttom">
-					<span v-for="(section, index) in item.sections" :key="index" class="section">{{ section.sectionTitle }}</span>
 				</div>
 			</div>
 			<button class="center"><router-link to="/favorite/all" class="btn" style="color: #AAAAAA;">查看更多收藏夹 ></router-link></button>
+			<svg class="Zi Zi--Feedback" title="建议反馈" fill="currentColor" viewBox="0 0 24 24" width="24" height="24">
+				<path
+					d="M19.99 6.99L18 5s-1-1-2-1H8C7 4 6 5 6 5L4 7S3 8 3 9v9s0 2 2.002 2H19c2 0 2-2 2-2V9c0-1-1.01-2.01-1.01-2.01zM16.5 5.5L19 8H5l2.5-2.5h9zm-2 5.5s.5 0 .5.5-.5.5-.5.5h-5s-.5 0-.5-.5.5-.5.5-.5h5z"
+					style="position: fixed; bottom: 20%; right: 10%;"
+				></path>
+			</svg>
 		</div>
+		
 	</div>
 </template>
 
 <script>
 export default {
-	name: 'special',
+	name: 'explore',
 	data() {
 		return {
 			specials: [],
@@ -108,9 +127,10 @@ export default {
 	margin-left: 350px;
 	margin-bottom: 30px;
 }
+
 .card {
 	background-color: rgb(255, 255, 255);
-	height: 550px;
+	height: 500px;
 	margin-right: -5px;
 }
 .cards {
@@ -137,6 +157,9 @@ export default {
 }
 .meta {
 	margin-top: -30px;
+}
+.metatwo {
+	margin-top: 10px;
 }
 .card-main {
 	position: relative;
