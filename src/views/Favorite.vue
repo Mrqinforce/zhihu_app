@@ -12,20 +12,26 @@
 		<div class="container">
 			<div class="row" v-for="(item, index) in favorites" v-if="index > begin && index < end" :key="index">
 				<div class="col-4">
-					<h3>{{ item.title }}</h3>
-					<!-- <div><img :src="item.creatorAvatar" alt="" /></div> -->
-					<h5>{{ item.creatorName }} 创建</h5>
-					<div>
-						<div class="r"><button class="btn">关注专题</button>
-						{{ item.followers }}人关注
+					<h4>{{ item.title }}</h4>
+					<img :src="item.creatorAvatar" />
+					<div class="name">
+						<h4>{{ item.creatorName }}</h4>
+						<span class="create">创建</span>
 					</div>
+					<div>
+						<div class="r">
+							<button class="btn">关注收藏夹</button>
+							<span class="jian">{{ item.followers }} 人关注</span>
+						</div>
 					</div>
 				</div>
+				<hr width="0.1" size="120" color="#DDDDDD">
 				<div class="col-8">
-					<h3>{{ item.questionTitle }}</h3>
-					<p>{{ item.answerAuthorName }}：{{ item.answerContent }}</p>
-					<p>回答{{ item.voteUpCount }},{{ item.commentCount }}评论</p>
-					<p>已收藏{{ item.tatalCount }}内容 ></p>
+					<h4>{{ item.questionTitle }}</h4>
+					<p class="answer">{{ item.answerAuthorName }}：{{ item.answerContent.slice(0, 90) }}...</p>
+					<span class="speak">回答</span>
+					<p class="comment">{{ item.voteUpCount }} 赞同,{{ item.commentCount }} 评论</p>
+					<p class="favorite">已收藏{{ item.totalCount }}内容 ></p>
 				</div>
 			</div>
 		</div>
@@ -66,7 +72,7 @@ export default {
 	width: 100%;
 	background-color: #ffffff;
 	margin-bottom: 10px;
-	margin-top: -10px;
+	margin-top: 10px;
 	height: 100px;
 	border: 1px solid #dddddd;
 	box-shadow: 2px 5px 5px #ddd;
@@ -87,17 +93,20 @@ export default {
 		margin-bottom: 10px;
 		border: 1px solid #d6d6d6;
 		border-radius: 4px;
-		height: 200px;
-		padding: 14px;
+		height: 170px;
+		padding: 20px;
 		box-shadow: 0 1px 3px 0 rgba(26, 26, 26, 0.1);
 		.col-4 {
-			flex: 0 0 33%;
+			flex: 0 0 30%;
 			height: 100%;
 			img {
-				width: 90%;
-				height: 100%;
-				border-radius: 5px;
+				position: absolute;
+				margin-top: 15px;
+				margin-left: 5px;
 			}
+		}
+		.col-8 {
+			margin-left: 15px;
 		}
 	}
 }
@@ -116,7 +125,12 @@ export default {
 	color: dodgerblue;
 }
 .r {
-	
+	margin-top: 60px;
+}
+card img {
+	position: absolute;
+	top: 40px;
+	left: 20px;
 }
 .btn {
 	-webkit-tap-highli0ht-color: rgba(26, 26, 26, 0);
@@ -144,8 +158,50 @@ export default {
 .introduction {
 	margin-top: -10px;
 }
-// img {
-// 	width: 20%;
-// 	height: 10%;
-// }
+.name {
+	display: flex;
+	position: relative;
+	top: 20px;
+	left: 40px;
+}
+.create {
+	margin-left: 5px;
+	line-height: 23px;
+	font-size: 14px;
+	color: #999;
+}
+.jian {
+	margin-left: 15px;
+	line-height: 23px;
+	font-size: 14px;
+	color: #999;
+}
+.answer {
+	font-size: 15px;
+	line-height: 20px;
+	color: #444444;
+}
+.speak {
+	margin-top: 100px;
+	margin-left: 10px;
+	background-color: #f6f6f6;
+	color: #999;
+	font-size: 12px;
+}
+.comment {
+	margin-top: -18px;
+	margin-left: 50px;
+	height: 17px;
+	line-height: 17px;
+	font-size: 12px;
+	color: #999;
+}
+.favorite {
+	top: 130px;
+	left: 18px;
+	font-size: 15px;
+	color: #8590a6;
+	font-weight: 500;
+	height: 24px;
+}
 </style>

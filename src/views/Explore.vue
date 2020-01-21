@@ -14,7 +14,7 @@
 				<div><img :src="item.banner" alt="" /></div>
 				<div class="card-body">
 					<h3>{{ item.title }}</h3>
-					<div class="r"><button class="btn">关注专题</button></div>
+					<div class="attention"><button class="btn">关注专题</button></div>
 					<p class="meta">{{ item.updated }}更新,{{ item.viewCount }}次浏览</p>
 					<p class="introduction">{{ item.introduction.slice(0, 40) }}...</p>
 				</div>
@@ -58,25 +58,32 @@
 				<h3>热门收藏夹</h3>
 			</div>
 			<div class="col-6 cards" v-for="(item, index) in favorites" :key="index">
-				<div class="card_head">
-					<div class="card-body">
-						<h3>{{ item.title }}</h3>
-						<div class="r"><button class="btn">关注收藏夹</button></div>
-						<div><img :src="item.creatorAvatar" alt="" /></div>
-						<p class="meta">{{ item.creatorName }}创建 | {{ item.followers }}关注</p>
-						<h4>{{ item.questionTitle}}</h4>
-						<h4>{{ item.answerAuthorName }}:{{ item.answerContent.slice(0, 32) }}...</h4>
-						<p class="metatwo">{{item.followers}}赞同，{{item.commentCount}}评论</p>
-					</div>
-				</div>
-			</div>
-			<button class="center"><router-link to="/favorite/all" class="btn" style="color: #AAAAAA;">查看更多收藏夹 ></router-link></button>
-			<svg class="Zi Zi--Feedback" title="建议反馈" fill="currentColor" viewBox="0 0 24 24" width="24" height="24">
+				<div class="favorite">
+									<p class="favorite_title">{{ item.title }}</p>
+									<button class="favorite_attention"><h4>关注收藏夹</h4></button>
+									<img :src="item.creatorAvatar" />
+									<p class="favorite_name">{{ item.creatorName }}</p>
+									<p class="favorite_create">创建 | {{ item.followers }}人关注</p>								
+								</div>
+								
+								<div class="popular">
+									<p class="popular_title">{{item.questionTitle}}</p>
+									<p class="popular_content">{{item.answerAuthorName}}: {{item.answerContent}}</p>			
+									<span class="popular_reply">回答</span>
+									<span class="popular_agree">{{item.voteupCount}}赞同 {{item.commentCount}}评论</span>
+								</div>
+								<div class="bottom">
+									<h4 class="content">已收藏{{ item.totalCount }}条内容 ></h4>
+								</div>
+							</div>
+						</div>
+			<button class="center_third"><router-link to="/favorite/all" class="btn" style="color: #AAAAAA;">查看更多收藏夹 ></router-link></button>
+			<!-- <svg class="Zi Zi--Feedback" title="建议反馈" fill="currentColor" viewBox="0 0 24 24" width="24" height="24">
 				<path
 					d="M19.99 6.99L18 5s-1-1-2-1H8C7 4 6 5 6 5L4 7S3 8 3 9v9s0 2 2.002 2H19c2 0 2-2 2-2V9c0-1-1.01-2.01-1.01-2.01zM16.5 5.5L19 8H5l2.5-2.5h9zm-2 5.5s.5 0 .5.5-.5.5-.5.5h-5s-.5 0-.5-.5.5-.5.5-.5h5z"
 					style="position: fixed; bottom: 20%; right: 10%;"
 				></path>
-			</svg>
+			</svg> -->
 		</div>
 		
 	</div>
@@ -123,7 +130,7 @@ export default {
 	font-size: 32px;
 	margin-right: 10px;
 }
-.r {
+.attention {
 	margin-left: 350px;
 	margin-bottom: 30px;
 }
@@ -234,4 +241,103 @@ export default {
 	height: 70px;
 	border-radius: 47%;
 }
+.center_third {
+	margin-left: 500px;
+	width: 150px;
+	height: 70px;
+	border-radius: 47%;
+}
+.favorite {
+		position: relative;
+		height: 30%;
+		img {
+			position: absolute;
+			top: 65px;
+			left: 20px;
+		}
+		.favorite_title {
+			position: absolute;
+			top: 20px;
+			left: 20px;
+			display: block;
+			height: 28px;
+			line-height: 28px;
+			font-size: 20px;
+			font-weight: 600;
+		}
+		.favorite_attention {
+			position: absolute;
+			top: 20px;
+			right: 30px;
+			border: none;
+			color: #0084ff;
+			background-color: rgba(0, 132, 255, 0.08);
+			height: 30px;
+			border-radius: 5px;
+			font-size: 14px;
+		}
+		.favorite_create {
+			position: absolute;
+			top: 60px;
+			left: 120px;
+			font-size: 14px;
+			color: #999;
+		}
+		.favorite_name {
+			position: absolute;
+			top: 60px;
+			left: 63px;
+			color: #444;
+			font-weight: 500;
+		}
+	}
+	.popular {
+			position: relative;
+			height: 50%;	
+			border-top: 1px solid #ebebeb;
+			width: 90%;		
+			left: 20px;
+			.popular_title{
+				position: absolute;
+				font-weight: 600;
+				line-height: 21px;
+				top: 20px;
+			}
+			.popular_content{
+				position: absolute;
+				top: 55px;
+				height: 21px;
+				line-height: 21px;
+				color: #444;
+			}
+			.popular_reply{
+				position: absolute;
+				top: 180px;
+				left: 5px;
+				background-color: #f6f6f6;
+				color: #999;
+				font-size: 12px;
+			}
+			.popular_agree{
+				position: absolute;
+				top: 180px;
+				left: 45px;
+				height: 17px;
+				line-height: 17px;
+				font-size: 12px;
+				color: #999;
+			}
+		}
+		.bottom {
+			position: relative;
+			height: 20%;
+			font-size: 14px;
+			color: #8590a6;		
+			.content{
+				position: absolute;
+				left: 22px;
+				top: 20px;
+			}
+		}
+	
 </style>
