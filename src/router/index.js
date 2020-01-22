@@ -24,7 +24,7 @@ const routes = [{
 			},
 			{
 				path: 'home',
-				component: () => 	import('../views/Home.vue'),
+				component: () => import('../views/Home.vue'),
 				children: [{
 						path: '/',
 						redirect: 'recommoned'
@@ -73,7 +73,11 @@ const routes = [{
 	{
 		path: '/login',
 		component: Login
-	}
+	},
+	{
+			path:'/all',
+			component:Column
+		},
 ]
 
 const router = new VueRouter({
