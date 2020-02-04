@@ -4,6 +4,7 @@
 			<div class="row">
 				<div class="banner">
 					<span>圆桌</span>	
+					<span class="round">举办圆桌</span>
 				</div>
 				<div class="col-4 card" v-for="(item, index) in roundTables" v-if="index > begin && index < end" :key="index">
 					<div class="card-head">
@@ -50,12 +51,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.container {
+	width:100%;
+}
 .banner {
-	width: 92%;
+	width: 180%;
 	background-color: #ffffff;
 	margin-bottom: -20px;
 	margin-top: -10px;
-	margin-left: 20px;
+	margin-left: -120px;
 	height: 60px;
 	border: 1px solid #dddddd;
 	box-shadow: 2px 5px 5px #ddd;
@@ -67,17 +71,20 @@ export default {
 	}
 }
 .col-4 {
-	flex: 0 0 19%;
+	flex: 0 0 15%;
 	img {
 		width: 100%;
 		height: 100%;
 	}
 }
+.round {
+	margin-left: 750px;
+}
 .card {
-	margin-right: 20px;
-	margin-bottom: 20px;
 	margin-right: 40px;
-	height: 250px;
+	margin-bottom: 20px;
+	width: 100%;
+	height: 200px;
 	background-color: white;
 	box-shadow: 0 1px 3px 0 rgba(26, 26, 26, 0.1);
 }
@@ -120,6 +127,7 @@ export default {
 	width: 60px;
 	height: 50px;
 	border-radius: 47%;
+	margin-left: 430px;
 }
 .iconfont {
 	font-size: 30px;

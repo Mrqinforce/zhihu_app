@@ -93,7 +93,7 @@
 				<p class="column_attention">{{ item.followers }}关注 {{ item.articlesCount }}文章</p>
 				<span class="column_description">{{ item.description.slice(0, 10) }}</span>
 				<div>
-					<a :href="item.url" class="column_go" @click="go(item.url)"><h4 class="column_btn">进入专栏</h4></a>
+					<a :href="item.url" class="column_btn" @click="go(item.url)"><h4 class="column_go">进入专栏</h4></a>
 				</div>
 			</div>
 			<button class="center"><router-link to="/column/all" class="btn" style="color: #AAAAAA;">查看更多专栏 ></router-link></button>
@@ -203,7 +203,9 @@ export default {
 	border-radius: 5px;
 }
 .card-body {
+	// 所有 4 个外边距都是 10px
 	margin: 15px;
+	// margin:10px 5px 15px 20px:上外边距是 10px 右外边距是 5px 下外边距是 15px 左外边距是 20px 按顺时针：上 右 下 左
 }
 .section {
 	padding: 0 8px;
@@ -232,7 +234,7 @@ export default {
 	background-color: rgba(0, 132, 255, 0.08);
 }
 .introduction {
-	display: flex;
+	// display: flex;
 	margin-top: -20px;
 }
 .name {
@@ -249,9 +251,6 @@ export default {
 }
 .col-6 {
 	flex: 0 0 47%;
-	// img {
-	// 	width: 100%;
-	// }
 }
 .center {
 	width: 150px;
@@ -265,7 +264,9 @@ export default {
 	border-radius: 47%;
 }
 .favorite {
+	// 如果用position来布局页面，父级元素的position属性必须为relative，而定位于父级内部某个位置的元素，最好用 absolute，因为它不受父级元素的padding的属性影响，当然你也可以用position，不过到时候计算的时候不要忘记padding的值
 	position: relative;
+	// 卡片里的高度占30%
 	height: 30%;
 	img {
 		position: absolute;
@@ -278,6 +279,7 @@ export default {
 		left: 20px;
 		display: block;
 		height: 28px;
+		// 设置行高
 		line-height: 28px;
 		font-size: 20px;
 		font-weight: 600;
@@ -286,6 +288,7 @@ export default {
 		position: absolute;
 		top: 20px;
 		right: 30px;
+		//设置无边框
 		border: none;
 		color: #0084ff;
 		background-color: rgba(0, 132, 255, 0.08);
@@ -313,7 +316,7 @@ export default {
 	height: 50%;
 	border-top: 1px solid #ebebeb;
 	width: 90%;
-	left: 20px;
+	left: 21px;
 	.popular_title {
 		position: absolute;
 		font-weight: 600;
@@ -330,7 +333,6 @@ export default {
 	.popular_reply {
 		position: absolute;
 		top: 180px;
-		left: 5px;
 		background-color: #f6f6f6;
 		color: #999;
 		font-size: 12px;
@@ -348,13 +350,13 @@ export default {
 .bottom {
 	position: relative;
 	height: 20%;
-	font-size: 14px;
-	color: #8590a6;
 	.content {
 		position: absolute;
-		left: 22px;
+		font-size: 14px;
+			color: #8590a6;
+		left: 21px;
 		top: 20px;
-	}
+}
 }
 .column {
 	position: relative;
@@ -371,6 +373,8 @@ export default {
 		width: 80px;
 		height: 80px;
 		border-radius: 50%;
+		// cursor 属性规定要显示的光标的类型（形状）。
+		// 该属性定义了鼠标指针放在一个元素边界范围内时所用的光标形状（不过 CSS2.1 没有定义由哪个边界确定这个范围）。
 		cursor: pointer;
 	}
 	.column_title {
@@ -385,7 +389,6 @@ export default {
 		position: absolute;
 		top: 150px;
 		left: 60px;
-		height: 17px;
 		line-height: 17px;
 		font-size: 12px;
 		color: #999;
@@ -394,14 +397,13 @@ export default {
 		position: absolute;
 		top: 190px;
 		left: 50px;
-		height: 40px;
 		line-height: 20px;
 		font-size: 14px;
 		color: #444;
 		text-align: center;
 	}
 }
-.column_go {
+.column_btn {
 	position: absolute;
 	top: 250px;
 	left: 70px;
@@ -413,7 +415,7 @@ export default {
 	border-radius: 5px;
 	font-size: 14px;
 	font-weight: 600;
-	.column_btn {
+	.column_go {
 		position: absolute;
 		top: 5px;
 		left: 15px;

@@ -178,7 +178,7 @@ export default {
 	font-weight: 300;
 	letter-spacing: 0.5em;
 	line-height: 24px;
-	margin: 0;
+	margin-left: -220px;
 	position: absolute;
 	text-align: center;
 	top: 350px;
@@ -245,6 +245,7 @@ export default {
 	height: 26px;
 	width: 100%;
 	margin-top: -20px;
+	margin-left: -85px;
 	text-align: center;
 	.zhuanlan {
 		color: #1a1a1a;
@@ -308,7 +309,7 @@ export default {
 .column {
 	position: relative;
 	top: 60px;
-	left: 280px;
+	left: 50px;
 	display: flex;
 	flex-wrap: wrap;
 	height: 500px;
@@ -377,6 +378,7 @@ export default {
 }
 .change {
 	height: 103px;
+	margin-left: -220px;
 	.Button--withLabel {
 		position: relative;
 		left: 660px;
@@ -394,7 +396,9 @@ export default {
 }
 .ready {
 	position: relative;
+	width: 1400px;
 	top: 70px;
+	right: 230px;
 	height: 320px;
 	img {
 		width: 100%;
@@ -439,6 +443,7 @@ export default {
 }
 .behind {
 	height: 140px;
+	margin-right: 200px;
 	background-color: rgb(251, 252, 252);
 	.ColumnHomeBottom-footer {
 		color: grey;

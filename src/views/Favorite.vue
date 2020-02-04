@@ -25,9 +25,9 @@
 						</div>
 					</div>
 				</div>
-				<hr width="0.1" size="120" color="#DDDDDD">
+				<hr width="0.1" size="120" color="#DDDDDD" />
 				<div class="col-8">
-					<h4>{{ item.questionTitle }}</h4>
+					<h4>{{ item.questionTitle.slice(0,38) }}...</h4>
 					<p class="answer">{{ item.answerAuthorName }}：{{ item.answerContent.slice(0, 90) }}...</p>
 					<span class="speak">回答</span>
 					<p class="comment">{{ item.voteUpCount }} 赞同,{{ item.commentCount }} 评论</p>
@@ -69,13 +69,15 @@ export default {
 
 <style lang="scss" scoped>
 .banner {
-	width: 100%;
+	width: 125%;
 	background-color: #ffffff;
 	margin-bottom: 10px;
+	margin-left: -230px;
 	margin-top: 10px;
 	height: 100px;
 	border: 1px solid #dddddd;
-	box-shadow: 2px 5px 5px #ddd;
+	box-shadow: 2px 5px 5px #DDDDDD;
+	// 设置左内边距
 	padding-left: 10%;
 	display: flex;
 	align-items: center;
@@ -88,17 +90,18 @@ export default {
 }
 .container {
 	background-color: #ffffff;
+	margin: 15px;
 	.row {
 		display: flex;
-		margin-bottom: 10px;
+		margin-bottom: 2px;
 		border: 1px solid #d6d6d6;
 		border-radius: 4px;
 		height: 170px;
+		// 上右下左的内边距均为20
 		padding: 20px;
 		box-shadow: 0 1px 3px 0 rgba(26, 26, 26, 0.1);
 		.col-4 {
-			flex: 0 0 30%;
-			height: 100%;
+			flex: 0 0 30%;	
 			img {
 				position: absolute;
 				margin-top: 15px;
@@ -110,27 +113,13 @@ export default {
 		}
 	}
 }
-.section {
-	padding: 0 8px;
-	height: 24px;
-	line-height: 24px;
-	border-radius: 5px;
-	background-color: #f6f6f6;
-	color: #8590a6;
-	font-size: 12px;
-	margin-left: 10px;
-}
+
 .iconfont {
 	font-size: 30px;
 	color: dodgerblue;
 }
 .r {
-	margin-top: 60px;
-}
-card img {
-	position: absolute;
-	top: 40px;
-	left: 20px;
+	margin-top: 40px;
 }
 .btn {
 	-webkit-tap-highli0ht-color: rgba(26, 26, 26, 0);
@@ -160,15 +149,14 @@ card img {
 }
 .name {
 	display: flex;
-	position: relative;
-	top: 20px;
-	left: 40px;
-}
+	margin-top: 20px;
+	margin-left: 45px;
+
 .create {
-	margin-left: 5px;
 	line-height: 23px;
 	font-size: 14px;
 	color: #999;
+}
 }
 .jian {
 	margin-left: 15px;

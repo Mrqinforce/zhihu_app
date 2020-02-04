@@ -7,13 +7,13 @@
 		<div class="container">
 			<div class="row" v-for="(item, index) in specials" v-if="index > begin && index < end" :key="index">
 				<div class="col-4"><img :src="item.banner" alt="" /></div>
-				<div class="col-8">
-					<h3>{{ item.title }}</h3>
+				<!-- <div class="col-8">
+					<h3 class="itemTitle">{{ item.title }}</h3>
 					<div class="r"><button class="btn">关注专题</button></div>
 					<p class="meta" style="color: rgb(204, 204, 204);">{{ item.updated }}更新,{{ item.view_count }}次浏览</p>
 					<p class="introduction">{{ item.introduction.slice(0, 40) }}...</p>
 					<span v-for="(section, index) in item.sections" :key="index" class="section">{{ section.sectionTitle }}</span>
-				</div>
+				</div> -->
 			</div>
 		</div>
 		<button @click="showAll" class="flex center btn">展开全部</button>
@@ -50,10 +50,11 @@ export default {
 
 <style lang="scss" scoped>
 .banner {
-	width: 100%;
+	width: 125%;
 	background-color: #ffffff;
 	margin-bottom: 10px;
 	margin-top: -10px;
+	margin-left: -230px;
 	height: 100px;
 	border: 1px solid #dddddd;
 	box-shadow: 2px 5px 5px #ddd;
@@ -69,6 +70,7 @@ export default {
 }
 .container {
 	background-color: #ffffff;
+    margin: 18px;
 	.row {
 		display: flex;
 		margin-bottom: 10px;
@@ -80,11 +82,15 @@ export default {
 		.col-4 {
 			flex: 0 0 33%;
 			height: 100%;
-			img {
+			img {				
 				width: 90%;
 				height: 100%;
 				border-radius: 5px;
 			}
+		}
+		.col-8 {
+			flex: 0 0 67%;
+			height: 100%;
 		}
 	}
 }
