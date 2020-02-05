@@ -13,7 +13,7 @@
 						<h3 class="light-grey" :class="{ top: index1 < 3 }">{{ index1 + 1 }}</h3>
 						<div class="ml-3">
 							<a :href="'https://www.zhihu.com/question/' + item.target.id" target="_blank" class="sub-title">{{ item.target.title }}</a>
-							<p class="mt-2 ellipsis">{{ item.target.excerpt }}</p>
+							<p class="mt-2 ellipsis-4">{{ item.target.excerpt }}</p>
 							<ul class="d-flex tu">
 								<li class="mr-4 light-grey">
 									<svg class="icon" viewBox="0 0 24 24" width="18" height="18">
@@ -36,12 +36,11 @@
 							</ul>
 						</div>
 					</div>
-
 					<div v-else class="d-flex p-3">
 						<h3 class="light-grey" :class="{ top: index1 < 3 }">{{ index1 + 1 }}</h3>
 						<div class="col-8 ml-3">
 							<a :href="'https://www.zhihu.com/question/' + item.target.id" target="_blank" class="sub-title">{{ item.target.title }}</a>
-							<p class="mt-2 ellipsis">{{ item.target.excerpt }}</p>
+							<p class="mt-2 ellipsis-2">{{ item.target.excerpt }}</p>
 							<ul class="d-flex mt-3 tu">
 								<li class="mr-3 light-grey">
 									<svg class="icon" viewBox="0 0 24 24" width="18" height="18">
@@ -52,7 +51,7 @@
 									</svg>
 									{{ item.detail_text }}
 								</li>
-								<li class="light-grey">
+								<li class="mr-3 light-grey">
 									<svg class="icon" viewBox="0 0 24 24" width="1.2em" height="1.2em">
 										<path
 											d="M2.931 7.89c-1.067.24-1.275 1.669-.318 2.207l5.277 2.908 8.168-4.776c.25-.127.477.198.273.39L9.05 14.66l.927 5.953c.18 1.084 1.593 1.376 2.182.456l9.644-15.242c.584-.892-.212-2.029-1.234-1.796L2.93 7.89z"
@@ -131,8 +130,11 @@ export default {
 	}
 }
 .card {
-	min-height: 138px;
+	top: -20px;
+	height: 160px;
+	right: 20px;
 	position: relative;
+	margin-bottom: -20px;
 	.tu {
 		position: absolute;
 		top: 100px;

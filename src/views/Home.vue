@@ -12,10 +12,9 @@
 				</div>
 				<router-view :key="$route.fullPath" />
 			</div>
-
-			<div class="right">
+			<div>
 				<div class="card fill-white tiny-round mb-2 shadow p-4 d-flex flex-column justify-content-around">
-					<ul class="d-flex ">
+					<ul class="d-flex">
 						<li class="fruid-col-4 tx-center link">
 							<svg class="grey-icon" viewBox="0 0 24 24" width="24" height="24">
 								<path
@@ -346,8 +345,8 @@ a {
 }
 .con {
 	display: flex;
-	width: 83%;
-	margin-left: 30px;
+	width: 80%;
+	margin-left: -10px;
 	.left {
 		width: 690px;
 	}
@@ -416,14 +415,16 @@ a {
 	cursor: pointer;
 }
 .card {
-	width: 100%;
-	height: 300px;
+	width: 300px;
+	height: 200px;
 	border: 1px solid #eee;
 	/* 圆角边框 */
-	border-radius: 5px;
+	border-radius: 2px;
 	/* margin是指从自身边框到另一个容器边框之间的距离，就是容器外距离 */
-	margin: 5px;
+	margin: 0px;
 	/* padding是指自身边框到自身内部另一个容器边框之间的距离，就是容器内距离 */
 	padding: 10px;
+	margin-left: 10px;
+	margin-bottom: 10px;
 }
 </style>

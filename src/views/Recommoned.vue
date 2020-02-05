@@ -22,7 +22,7 @@
 						</div>
 					</div>
 
-					<div class="d-flex mb-4" v-else>
+					<div class="d-flex mb-4 card-two" v-else>
 						<div class="mt-2">
 							<p class="ellipsis-2">{{ item.target.author.name }}: {{ item.target.excerpt }}</p>
 							<span class="read-more link" @click="change(index)">
@@ -161,6 +161,14 @@ export default {
 	height: 240px;
 	weight: 240px;
 	margin-bottom: 0.5px;
+	margin: 0px;
+}
+.card-two {
+	margin-top: 2px;
+	height: 120px;
+	weight: 240px;
+	margin-bottom: 0.5px;
+	margin: 0px;
 }
 .read-more {
 	position: relative;
