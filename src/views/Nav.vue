@@ -68,13 +68,13 @@
 						<li class="nav-item"><router-link to="/home/follow">关注</router-link></li>
 						<li class="nav-item"><router-link to="/home/hot">热榜</router-link></li>
 						
-						<div class="Popover ">
+						<div class="Popover-two">
 							<label class="SearchBar-input Input-wrapper Input-wrapper--grey">
 								<input type="text" maxlength="100" class="Input" placeholder="雷霆末节逆转对手"/>
 								
 									<span style="display: inline-flex; align-items: center;">
 										​
-										<svg class="Zi--Search" fill="currentColor" viewBox="0 0 24 24" width="18" height="18">
+										<svg class="Zi--Search-two" fill="currentColor" viewBox="0 0 24 24" width="18" height="18">
 											<path
 												d="M17.068 15.58a8.377 8.377 0 0 0 1.774-5.159 8.421 8.421 0 1 0-8.42 8.421 8.38 8.38 0 0 0 5.158-1.774l3.879 3.88c.957.573 2.131-.464 1.488-1.49l-3.879-3.878zm-6.647 1.157a6.323 6.323 0 0 1-6.316-6.316 6.323 6.323 0 0 1 6.316-6.316 6.323 6.323 0 0 1 6.316 6.316 6.323 6.323 0 0 1-6.316 6.316z"
 												fill-rule="evenodd"
@@ -84,14 +84,14 @@
 								</button>
 							</label>							
 						</div>						
-						<button type="button" class="Button--blue">提问</button>
+						<button type="button" class="Button--blue-two">提问</button>
 						</ul>
 				</div>
 			</transition>
 		</div>
 
 		<!-- 二级路由 -->
-		<router-view class="zh-container"	 />
+		<router-view class="zh-container" />
 	</div>
 </template>
 
@@ -187,6 +187,29 @@ export default {
 			border: none;
 		}
 	}
+	.Popover-two {
+		position: absolute;
+		left: 670px;
+		top: 12px;
+		font-size: 15px;
+		color: #1a1a1a;
+		width: 226px;
+		height: 34px;
+		display: block;
+		background: #f6f6f6;		
+		.Input {
+			position: absolute;
+			top: 5px;
+			left: 10px;
+			color: #8590a6;
+			background: #f6f6f6;
+			height: 24px;
+			line-height: 24px;
+			font-size: inherit;
+			font-weight: inherit;
+			border: none;
+		}
+	}
 }
 .Button--blue {
 	position: absolute;
@@ -202,12 +225,26 @@ export default {
 	border: 1px solid;
 	border-radius: 3px;
 }
+.Button--blue-two {
+	position: absolute;
+	left: 910px;
+	top: 12px;
+	height: 36px;
+	width: 58px;
+	color: #fff;
+	background-color: #0084ff;
+	font-size: 14px;
+	text-align: center;
+	cursor: pointer;
+	border: 1px solid;
+	border-radius: 3px;
+}
 .nav-item {
-	margin-right: -20px;
-	// margin-top: 20px;
+	margin-right: -30px;
+	margin-left: 8px;
 	margin-bottom: -20px;
 	color: #8590a6;
-	font-size: 10px;
+	font-size: 11px;
 	font-weight: 600;
 }
 .Zi--Bell {
@@ -245,18 +282,25 @@ export default {
 	top: 10px;
 	color: #8590a6;
 }
-a {
-	position: relative;
+.Zi--Search-two{
+	position: absolute;
+	left: 200px;
+	top: 10px;
 	color: #8590a6;
 }
+a {
+	position: relative;
+	left: -30px;
+	color: #8590a6;
+	font-size: 15px;
+}
 a:hover {
-	color: #1a1a1a;
+	color: #1A1A1A;
 }
 /* 路由激活样式 */
 .router-link-active {
 	color: #444;
 	font-weight: 600;
-	border-bottom: 2px solid blue;
-	font-size: 15px;
+	border-bottom: 1.5px solid #0C89FF;
 }
 </style>

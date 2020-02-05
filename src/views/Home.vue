@@ -79,11 +79,11 @@
 							</svg>
 							<p class="meta ml-2 normal-font">
 								创作者中心
-								<span class="blue ml-2 normal-font">去开通</span>
+								<span class="blue ml-3 normal-font">去开通</span>
 							</p>
 						</div>
 
-						<svg class="grey-icon" viewBox="0 0 24 24" width="24" height="24">
+						<svg class="grey-icon" style="margin-top:12px ;" viewBox="0 0 24 24" width="24" height="24">
 							<path
 								d="M9.218 16.78a.737.737 0 0 0 1.052 0l4.512-4.249a.758.758 0 0 0 0-1.063L10.27 7.22a.737.737 0 0 0-1.052 0 .759.759 0 0 0-.001 1.063L13 12l-3.782 3.716a.758.758 0 0 0 0 1.063z"
 								fill-rule="evenodd"
@@ -426,5 +426,13 @@ a {
 	padding: 10px;
 	margin-left: 10px;
 	margin-bottom: 10px;
+}
+.meta {
+	margin-top: -1px;
+	font-size: 14px;
+	color: #8590a6;
+}
+.ml-3 {
+	margin-left: 6rem;
 }
 </style>
