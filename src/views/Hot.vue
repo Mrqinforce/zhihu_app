@@ -131,7 +131,7 @@ export default {
 }
 .card {
 	top: -20px;
-	height: 160px;
+	min-height: 138px;
 	right: 20px;
 	position: relative;
 	margin-bottom: -20px;

@@ -2,9 +2,12 @@
 	<div>
 		<div v-for="(item, index) in recommenedList" :key="index" class="card border-bottom fill-white">
 			<div class="p-4">
+				<!-- 有的JSON数据title放的地方不一样，处理一下 -->
 				<h3 v-if="item.target.question == null" class="mb-2">{{ item.target.title }}</h3>
 				<h3 v-else class="mb-2">{{ item.target.question.title }}</h3>
+				<!-- 缩略形式显示，flag为false -->
 				<div v-if="!flags[index]">
+					<!-- 有图片 -->
 					<div class="d-flex" v-if="item.target.thumbnail">
 						<div class="col-3 mr-3"><img :src="item.target.thumbnail" class="fill tiny-round" /></div>
 
@@ -21,7 +24,7 @@
 							</span>
 						</div>
 					</div>
-
+                     <!-- 没图片 -->
 					<div class="d-flex mb-4 card-two" v-else>
 						<div class="mt-2">
 							<p class="ellipsis-2">{{ item.target.author.name }}: {{ item.target.excerpt }}</p>
@@ -38,7 +41,7 @@
 					</div>
 				</div>
 
-				<!-- 点击“阅读全文”显示 -->
+				<!-- 点击“阅读全文”显示，flag为true -->
 				<div v-if="flags[index]" class="p-2">
 					<div class="d-inline-flex">
 						<img :src="item.target.author.avatar_url" class="avatar mr-2" />
@@ -49,6 +52,7 @@
 					<div v-html="item.target.content" class="content"></div>
 				</div>
 			</div>
+			<!-- 每篇文章下方的图标列表 -->
 			<ul class="sticky-bar d-flex align-items-center " :class="{ active: flags[index] }">
 				<button class="d-block blue-txt-btn pl-2 pr-2 ml-4 link">
 					<svg class="blue-icon" viewBox="0 0 24 24" width="10" height="10">
@@ -109,7 +113,7 @@
 						<path d="M5 14a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm7 0a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm7 0a2 2 0 1 1 0-4 2 2 0 0 1 0 4z" fill-rule="evenodd"></path>
 					</svg>
 				</li>
-				<li class="ml-5 light-grey link" @click="change(index)" v-if="flags[index]">
+				<li class="ml-5 mb-2 light-grey link" @click="change(index)" v-if="flags[index]">
 					收起
 					<svg class="grey-icon up" viewBox="0 0 24 24" width="24" height="24">
 						<path
@@ -158,7 +162,7 @@ export default {
 <style lang="scss" scoped>
 .card {
 	margin-top: 2px;
-	height: 240px;
+	min-height: 230px;
 	weight: 240px;
 	margin-bottom: 0.5px;
 	margin: 0px;
@@ -197,10 +201,14 @@ export default {
 	}
 }
 .active {
+	// 实现固定
+	position: sticky;
+	bottom: 0;
+	z-index: 999;
+	background-color: #fff;
 	width: 100%;
 	height: 50px;
-	border: 1px solid #ddd;
-	border-radius: 3px;
+	border: 1px solid white;
 }
 .up {
 	transform: rotate(180deg);
@@ -208,4 +216,4 @@ export default {
 .pl-1 {
 	padding-left: 2rem;
 }
-</style>	
+</style>

@@ -102,7 +102,7 @@
 						<path d="M5 14a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm7 0a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm7 0a2 2 0 1 1 0-4 2 2 0 0 1 0 4z" fill-rule="evenodd"></path>
 					</svg>
 				</li>
-				<li class="ml-5 light-grey link" @click="change(index)" v-if="flags[index]">
+				<li class="ml-5 mb-2 light-grey link" @click="change(index)" v-if="flags[index]">
 					收起
 					<svg class="grey-icon up" viewBox="0 0 24 24" width="24" height="24">
 						<path
@@ -151,7 +151,7 @@ export default {
 <style lang="scss" scoped>
 .card {
 	margin-top: 2px;
-	height: 240px;
+	min-height: 215px;
 	weight: 240px;
 	margin-bottom: 0.5px;
 	margin: 0px;
@@ -170,8 +170,7 @@ export default {
 	background-color: #fff;
 	width: 100%;
 	height: 50px;
-	border: 1px solid #ddd;
-	border-radius: 3px;
+	border: 1px solid white;
 }
 .up {
 	transform: rotate(180deg);

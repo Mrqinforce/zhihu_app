@@ -17,25 +17,22 @@
 					<li class="nav-item"><router-link to="/explore">发现</router-link></li>
 					<li class="nav-item"><router-link to="/question/waiting">等你来答</router-link></li>
 					
-					<div class="Popover">
-						<label class="SearchBar-input Input-wrapper Input-wrapper--grey">
-							<input type="text" maxlength="100" class="Input" placeholder="病毒会不会被冻死"/>
-							
-								<span style="display: inline-flex; align-items: center;">
-									​
-									<svg class="Zi--Search" fill="currentColor" viewBox="0 0 24 24" width="18" height="18">
-										<path
-											d="M17.068 15.58a8.377 8.377 0 0 0 1.774-5.159 8.421 8.421 0 1 0-8.42 8.421 8.38 8.38 0 0 0 5.158-1.774l3.879 3.88c.957.573 2.131-.464 1.488-1.49l-3.879-3.878zm-6.647 1.157a6.323 6.323 0 0 1-6.316-6.316 6.323 6.323 0 0 1 6.316-6.316 6.323 6.323 0 0 1 6.316 6.316 6.323 6.323 0 0 1-6.316 6.316z"
-											fill-rule="evenodd"
-										></path>
-									</svg>
-								</span>
-							</button>
-						</label>
-						
-					</div>
-					
-					<button type="button" class="Button--blue">提问</button>				
+					<div class="fruid-col-5 d-flex align-items-center pl-4 search-bar">
+											<div class="search-box mr-2" @click="popUp = !popUp" contenteditable="true">武汉加油</w></div>
+											<transition name="fade">
+												<div class="search-container border" v-if="popUp">
+													<a href="" class="border-bottom d-block">知乎热搜</a>
+													<a href="" class="grey border-bottom d-block">全国确诊14411例</a>
+													<a href="" class="grey border-bottom d-block">武汉红十字会</a>
+													<a href="" class="grey border-bottom d-block">英国正式脱欧</a>
+													<a href="" class="grey border-bottom d-block">20020202</a>
+													<a href="" class="grey border-bottom d-block">直接捐赠武汉医院</a>
+													<a href="" class="border-bottom d-block">搜索历史 <button class="btn">清空</button></a>
+													<a href="" class="grey border-bottom d-block">口罩处理</a>
+												</div>
+											</transition>
+											<button class="blue-fill-btn">提问</button>
+										</div>
 					<svg class="Zi--Bell" fill="currentColor" viewBox="0 0 24 24" width="22" height="22">
 						<path
 							d="M4.523 15.076l.804-6.757a6.753 6.753 0 0 1 4.945-5.7 1.823 1.823 0 0 1 3.623 0 6.753 6.753 0 0 1 4.945 5.7l.804 6.757a2.293 2.293 0 0 0 1.712 2.108 1.093 1.093 0 0 1-.297 2.15H3.108a1.093 1.093 0 0 1-.297-2.15 2.293 2.293 0 0 0 1.712-2.108zM12.083 23a2.758 2.758 0 0 1-2.753-2.509.229.229 0 0 1 .232-.24h5.043a.229.229 0 0 1 .232.24 2.759 2.759 0 0 1-2.753 2.51z"
@@ -47,8 +44,48 @@
 							fill-rule="evenodd"
 						></path>
 					</svg>				
-					<img class="im" :src="user.avatar" v-if="token" />
-					<span v-else class="im"><router-link to="/login">登录</router-link></span>
+					<img :src="user.avatar" v-if="token" width="30" height="30" class="tiny-round link ml-5" @click="show = !show" />
+						<span v-else class="link ml-5"><router-link to="/login">登录</router-link></span>
+						<transition name="fade">
+							<ul class="fill-white border shadow profile-box" v-if="show">
+								<li class="d-flex align-items-center mb-1">
+									<!-- <svg class="grey-icon mr-2" viewBox="0 0 24 24" width="16" height="16" style="padding-right: 2px;">
+										<path
+											d="M15.417 12.923c-.376.653-.837 1.281-.763 1.863.292 2.273 5.562 1.77 6.78 3.048.566.595.566.664.566 4.164-6.611-.07-13.363 0-20 0 .027-3.5 0-3.478.62-4.164 1.303-1.44 6.581-.715 6.78-3.133.045-.545-.38-1.114-.763-1.778C6.511 9.233 5.697 2 12 2s5.422 7.443 3.417 10.923z"
+											fill-rule="evenodd"
+										></path>
+									</svg> -->
+									<router-link :to="'/people/' + user.url">我的主页</router-link>
+								</li>
+								<li class="d-flex align-items-center mb-1">
+									<!-- <svg class="grey-icon mr-1" viewBox="0 0 24 24" width="16" height="16">
+										<path
+											d="M15.075 15.388l-3.024 3.024a4.041 4.041 0 0 0-1.014 1.697l-.26.868C7.844 20.986 4.91 21 2 21c.026-3.325 0-3.304.59-3.956 1.237-1.368 6.251-.68 6.44-2.976.043-.518-.36-1.06-.725-1.69C6.285 8.87 5.512 2 11.5 2c5.988 0 5.15 7.072 3.246 10.378-.357.62-.795 1.217-.724 1.77.073.571.477.958 1.053 1.24zm5.402 1.672c.523.55.523.646.523 3.94a535.11 535.11 0 0 0-4.434-.028l3.911-3.912zm-7.88 2.699c.111-.37.312-.705.584-.978l4.76-4.76a.291.291 0 0 1 .412 0l1.626 1.626a.291.291 0 0 1 0 .411l-4.76 4.76c-.272.273-.608.474-.978.585l-1.96.588a.219.219 0 0 1-.272-.272l.589-1.96zm9.157-6.742a.839.839 0 0 1 0 1.187l-.94.94a.28.28 0 0 1-.395 0l-1.563-1.563a.28.28 0 0 1 0-.395l.94-.94a.839.839 0 0 1 1.187 0l.771.771z"
+											fill-rule="evenodd"
+										></path>
+									</svg> -->
+									<router-link to="/creator">创作者中心</router-link>
+								</li>
+								<li class="d-flex align-items-center mb-1">
+									<!-- <svg class="grey-icon mr-2" viewBox="0 0 24 24" width="16" height="16">
+										<path
+											d="M20.868 17.185a.896.896 0 0 1-.452.137c-.123 0-1.397-.26-1.617-.233-1.354.014-1.78 1.276-1.835 1.742-.055.453 0 .892.191 1.303a.8.8 0 0 1-.068.851C16.224 21.877 14.922 22 14.73 22a.548.548 0 0 1-.356-.151c-.11-.096-.685-1.138-1.069-1.468-1.304-.955-2.247-.329-2.63 0-.398.33-.672.7-.836 1.125a.632.632 0 0 1-.329.37c-1.354.426-2.918-.919-3.014-1.056a.564.564 0 0 1-.123-.356c-.014-.138.383-1.276.342-1.688-.342-1.9-1.836-1.687-2.096-1.673a3.192 3.192 0 0 0-.918.178.873.873 0 0 1-.59-.055c-.887-.462-1.136-2.332-1.109-2.51.055-.315.192-.521.438-.604.425-.164.809-.452 1.151-.85.931-1.262.343-2.25 0-2.634-.342-.356-.726-.645-1.15-.809-.138-.041-.234-.151-.33-.316-.38-1.434.613-2.552.867-2.77.255-.22.6-.055.723 0 .425.164.877.219 1.343.15C6.7 6.636 6.784 5.141 6.81 4.908c.014-.247-.11-1.29-.137-1.4a.488.488 0 0 1 .027-.315C7.317 2.178 9.071 2 9.222 2a.56.56 0 0 1 .439.178c.11.124.63 1.111 1 1.4.4.338 1.583.83 2.59.013.397-.274.959-1.29 1.082-1.413A.55.55 0 0 1 14.717 2c1.56 0 2.329 1.029 2.438 1.22a.458.458 0 0 1 .069.371c-.028.151-.329 1.152-.26 1.605.365 1.537 1.383 1.742 1.89 1.783.493.028 1.644-.356 1.809-.343a.63.63 0 0 1 .424.206c.535.31.85 1.715.905 2.14.027.233-.014.439-.11.562-.11.138-1.165.714-1.48 1.112-.855.982-.342 2.25-.068 2.606.26.37 1.22.905 1.288.96.15.137.26.302.315.494.146 1.413-.89 2.387-1.069 2.47zm-8.905-.535c.644 0 1.246-.123 1.822-.356a4.576 4.576 0 0 0 1.493-1.016 4.694 4.694 0 0 0 1-1.495c.247-.562.357-1.18.357-1.81 0-.659-.11-1.262-.356-1.825a4.79 4.79 0 0 0-1-1.481 4.542 4.542 0 0 0-1.494-1.002 4.796 4.796 0 0 0-3.631 0 4.627 4.627 0 0 0-1.48 1.002c-.424.425-.767.919-1 1.481a4.479 4.479 0 0 0-.37 1.825c0 .644.124 1.248.37 1.81a4.62 4.62 0 0 0 1 1.495c.425.426.918.768 1.48 1.016a4.677 4.677 0 0 0 1.809.356z"
+											fill-rule="evenodd"
+										></path>
+									</svg> -->
+									<router-link to="/setting">设置</router-link>
+								</li>
+								<li class="d-flex align-items-center">
+									<!-- <svg class="grey-icon mr-2" fill="currentColor" viewBox="0 0 24 24" width="16" height="16">
+										<path
+											d="M2 11.999c0-2.756 1.154-5.417 3.167-7.3a1.266 1.266 0 0 1 1.73 1.847 7.396 7.396 0 0 0-2.367 5.453c0 4.119 3.35 7.47 7.47 7.47 4.119 0 7.47-3.351 7.47-7.47a7.41 7.41 0 0 0-2.279-5.37 1.266 1.266 0 0 1 1.76-1.819A9.923 9.923 0 0 1 22 12c0 5.513-4.486 10-10 10s-10-4.487-10-10zm8.699-.482V3.26a1.26 1.26 0 1 1 2.52 0v8.257a1.26 1.26 0 1 1-2.52 0z"
+											fill-rule="evenodd"
+										></path>
+									</svg> -->
+									<a @click.prevent.stop="logout($event)" href="#">退出</a>
+								</li>
+							</ul>
+						</transition>
 				</ul>
 			</div>
 			</transition>
@@ -64,27 +101,14 @@
 								></path>
 							</g>
 						</svg>
-						<li class="nav-item"><router-link to="/home/recommoned">推荐</router-link></li>
-						<li class="nav-item"><router-link to="/home/follow">关注</router-link></li>
-						<li class="nav-item"><router-link to="/home/hot">热榜</router-link></li>
+						<li class="nav-itemT"><router-link to="/home/recommoned">推荐</router-link></li>
+						<li class="nav-itemT"><router-link to="/home/follow">关注</router-link></li>
+						<li class="nav-itemT"><router-link to="/home/hot">热榜</router-link></li>
 						
-						<div class="Popover-two">
-							<label class="SearchBar-input Input-wrapper Input-wrapper--grey">
-								<input type="text" maxlength="100" class="Input" placeholder="雷霆末节逆转对手"/>
-								
-									<span style="display: inline-flex; align-items: center;">
-										​
-										<svg class="Zi--Search-two" fill="currentColor" viewBox="0 0 24 24" width="18" height="18">
-											<path
-												d="M17.068 15.58a8.377 8.377 0 0 0 1.774-5.159 8.421 8.421 0 1 0-8.42 8.421 8.38 8.38 0 0 0 5.158-1.774l3.879 3.88c.957.573 2.131-.464 1.488-1.49l-3.879-3.878zm-6.647 1.157a6.323 6.323 0 0 1-6.316-6.316 6.323 6.323 0 0 1 6.316-6.316 6.323 6.323 0 0 1 6.316 6.316 6.323 6.323 0 0 1-6.316 6.316z"
-												fill-rule="evenodd"
-											></path>
-										</svg>
-									</span>
-								</button>
-							</label>							
-						</div>						
-						<button type="button" class="Button--blue-two">提问</button>
+						<div class="d-flex justify-content-end align-items-center mt-2 to">
+							<div class="search-box mr-2">搜索你感兴趣的内容...</div>
+							<button class="blue-fill-btn">提问</button>
+							</div>
 						</ul>
 				</div>
 			</transition>
@@ -103,7 +127,8 @@ export default {
 			token: this.$store.state.token,
 			user: this.$store.state.user,
 			fixed: true,
-			show: false
+			show: false,
+			popUp: false
 		};
 	},
 	mounted() {
@@ -134,16 +159,21 @@ export default {
 				// this.fixed = scrolled <= header_height;
 				this.fixed = scrolled <= 152;
 			}
-		}
+		},
+		logout(event){
+					this.token = '';
+					this.show = false;
+					this.$store.commit('setToken', '');
 	}
+}
 };
 </script>
-
 <style lang="scss" scoped>
 .nav-bar {	
 	position: sticky;
 	top: 0;
-	height: 52px;		
+	height: 52px;	
+	line-height: 50px;
 	z-index: 999;
 }
 .hide-bar {
@@ -163,89 +193,39 @@ export default {
 	margin-top: 14px;
 }
 .gutter {
-	position: relative;
-	.Popover {
-		position: absolute;
-		left: 370px;
-		top: 12px;
-		font-size: 15px;
-		color: #1a1a1a;
-		width: 326px;
-		height: 34px;
-		display: block;
-		background: #f6f6f6;		
-		.Input {
-			position: absolute;
-			top: 5px;
-			left: 10px;
-			color: #8590a6;
-			background: #f6f6f6;
-			height: 24px;
-			line-height: 24px;
-			font-size: inherit;
-			font-weight: inherit;
-			border: none;
-		}
+	position: relative;	
+}
+/* 个人中心菜单 */
+.profile-box {
+		position: fixed;
+		top: 60px;
+		right: 150px;
+		width: 145px;
+		height: 145px;
+		line-height: 28px;
+		border-radius: 5px;
+		padding: 15px 10px 10px 30px;
+		z-index: 120;
 	}
-	.Popover-two {
-		position: absolute;
-		left: 670px;
-		top: 12px;
-		font-size: 15px;
-		color: #1a1a1a;
-		width: 226px;
-		height: 34px;
-		display: block;
-		background: #f6f6f6;		
-		.Input {
-			position: absolute;
-			top: 5px;
-			left: 10px;
-			color: #8590a6;
-			background: #f6f6f6;
-			height: 24px;
-			line-height: 24px;
-			font-size: inherit;
-			font-weight: inherit;
-			border: none;
-		}
-	}
-}
-.Button--blue {
-	position: absolute;
-	left: 710px;
-	top: 12px;
-	height: 36px;
-	width: 58px;
-	color: #fff;
-	background-color: #0084ff;
-	font-size: 14px;
-	text-align: center;
-	cursor: pointer;
-	border: 1px solid;
-	border-radius: 3px;
-}
-.Button--blue-two {
-	position: absolute;
-	left: 910px;
-	top: 12px;
-	height: 36px;
-	width: 58px;
-	color: #fff;
-	background-color: #0084ff;
-	font-size: 14px;
-	text-align: center;
-	cursor: pointer;
-	border: 1px solid;
-	border-radius: 3px;
-}
 .nav-item {
-	margin-right: -30px;
-	margin-left: 8px;
-	margin-bottom: -20px;
-	color: #8590a6;
-	font-size: 11px;
-	font-weight: 600;
+	margin-left: 13px;
+	margin-bottom: -15px;
+	.router-link-active {
+			color: #444;
+			font-weight: 600;
+			border-bottom: 3px solid  #0084ff;
+			padding-bottom: 8px;
+			font-size: 16px;
+		}
+}
+.nav-itemT {
+	margin-left: 30px;
+	margin-bottom: -10px;
+	.router-link-active {
+			font-weight: 500;
+			color: #007aff;
+			font-size: 16px;
+		}
 }
 .Zi--Bell {
 	position: absolute;
@@ -276,18 +256,42 @@ export default {
 	right: 55px;
 	top: 14px;
 }
-.Zi--Search{
-	position: absolute;
-	left: 290px;
-	top: 10px;
-	color: #8590a6;
+/* 搜索框 */
+.search-box {
+	width: 50%;
+	height: 32px;
+	margin-top: 10px;
+	line-height: 35px;
+	padding-left: 0.625rem;
+	color: #8c97ac;
+	background-color: #f6f6f6;
+	border: 1px solid #ddd;
+	border-radius: 3px;
 }
-.Zi--Search-two{
+.search-container {
 	position: absolute;
-	left: 200px;
-	top: 10px;
-	color: #8590a6;
+	top: 50px;
+	right: 37.5%;
+	width: 310px;
+	line-height: 28px;
+	border-radius: 5px;
+	padding: 10px 10px 10px 30px;
+	z-index: 130;
+	background-color: #fff;
 }
+.blue-fill-btn{
+		margin-left: 10px;
+		margin-top: 10px;
+		height: 36px;
+		width: 58px;
+		color: #fff;
+		background-color: #0084ff;
+		font-size: 14px;
+		text-align: center;
+		cursor: pointer;
+		border: 1px solid;
+		border-radius: 3px;
+	}
 a {
 	position: relative;
 	left: -30px;
@@ -297,10 +301,87 @@ a {
 a:hover {
 	color: #1A1A1A;
 }
-/* 路由激活样式 */
-.router-link-active {
-	color: #444;
+.hide-bar.router-link-active {
+	font-weight: 200;
+	color: #0C89FF;
+	font-size: 16px;
+}
+.hide-bar.router-link-active:after {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 34px;
+	height: 3px;
+	content: '';
+	color: #44446e;
 	font-weight: 600;
-	border-bottom: 1.5px solid #0C89FF;
+	background-color: skyblue;
+}
+/* 导航条进入/离开的动画效果(兼过渡) */
+.nav-bar-enter-active,
+.nav-bar-leave-active {
+	transition: all 0.1s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+.nav-bar-enter,
+.nav-bar-leave-to {
+	transform: translateY(-52px);
+	opacity: 0;
+}
+.hide-bar-enter-active,
+.hide-bar-leave-active {
+	transition: all 0.1s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+.hide-bar-enter,
+.hide-bar-leave-to {
+	transform: translateY(52px);
+	opacity: 0;
+}
+.to{
+	position: absolute;
+	right: 50px;
+	.blue-fill-btn{
+		margin-left: 10px;
+		margin-bottom: 15px;
+		height: 36px;
+		width: 58px;
+		color: #fff;
+		background-color: #0084ff;
+		font-size: 14px;
+		text-align: center;
+		cursor: pointer;
+		border: 1px solid;
+		border-radius: 3px;
+	}
+	/* 搜索框 */
+	.search-box {
+		width: 215px;
+		height: 35px;
+		margin-bottom: 15px;
+		line-height: 35px;
+		padding-left: 0.625rem;
+		color: #8c97ac;
+		background-color: #f6f6f6;
+		border-radius: 3px;
+	}
+}
+/* 个人中心div的动画*/
+.fade-enter-active {
+	transition: all 0.2s ease-in;
+}
+.fade-leave-active {
+	transition: all 0.2s ease-out;
+}
+.fade-enter,
+.fade-leave-to {
+	transform: translateY(-20px);
+	opacity: 0;
+}
+.mr-2 {
+	margin-right: 1.6rem;
+} 
+.btn {	
+	margin-left: 175px;
+	font-size: 14px;
+	color: lightgray;
 }
 </style>

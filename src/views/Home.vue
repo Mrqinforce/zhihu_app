@@ -303,11 +303,11 @@ export default {
 				}
 			}, 16);
 		},
-		// 计算距离顶部的高度，当高度大于60显示回顶部图标，小于60则隐藏
+		// 计算距离顶部的高度，当高度大于500显示回顶部图标，小于500则隐藏
 		scrollToTop() {
 			let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
 			this.scrollTop = scrollTop;
-			if (this.scrollTop > 1000) {
+			if (this.scrollTop > 500) {
 				this.btnFlag = true;
 			} else {
 				this.btnFlag = false;
