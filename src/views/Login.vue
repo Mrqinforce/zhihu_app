@@ -72,7 +72,7 @@
 				</div>
 			</div>
 
-			<div class="tab-box" style="height: 310px;" v-if="show && selected === 1">
+			<div class="tab-box" style="height: 31 0px;" v-if="show && selected === 1">
 				<div class="sign-mbnumber">
 					<label class="Input-wrapper"><input name="username" type="tel" class="Input" placeholder="手机号或邮箱" value="" /></label>
 				</div>
